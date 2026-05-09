@@ -1,0 +1,89 @@
+/* ===== Floating Glass Header ===== */
+
+.header {
+  position: sticky;
+  top: 18px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin: 0 20px;
+  border-radius: 14px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+  border: none;
+  /* FIX: Ensures the glass container doesn't exceed screen width */
+  max-width: calc(100% - 40px);
+}
+
+/* ===== Container spacing ===== */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.4rem;
+  flex-wrap: wrap; /* FIX: Allows nav to drop below logo if space runs out */
+}
+
+/* ===== Logo ===== */
+.header img {
+  height: 58px;
+  width: auto;
+  flex-shrink: 0; /* Keeps logo from squishing */
+}
+
+/* ===== Navigation ===== */
+.header nav {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: #0a2540;
+  font-weight: 500;
+  position: relative;
+  white-space: nowrap; /* Prevents link text from breaking into two lines */
+}
+
+.header nav a:hover, .header nav a.active {
+  color: #f97316;
+}
+
+.header nav a:focus {
+  outline: none;
+}
+
+/* ===== Responsive Functionality ===== */
+
+@media (max-width: 600px) {
+  .header {
+    top: 10px; /* Tighter gap for small screens */
+    margin: 0 10px;
+    max-width: calc(100% - 20px);
+  }
+
+  .header .container {
+    padding: 0.6rem 1rem;
+    justify-content: center; /* Centers both logo and nav when stacked */
+    gap: 0.8rem;
+  }
+
+  .header img {
+    height: 50px !important; /* Slightly smaller logo for mobile height */
+  }
+
+  .header nav {
+    gap: 1rem; /* Tighter spacing between links */
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  /* For very small phones, stack the links to keep them clickable */
+  .header nav {
+    width: 100%;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 0.5rem;
+  }
+}

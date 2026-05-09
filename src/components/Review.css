@@ -1,0 +1,107 @@
+/* ===== Reviews Section ===== */
+.reviews {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.reviews-title {
+  font-size: 2rem;
+  color: #0a2540;
+  margin-bottom: 2rem;
+}
+
+/* ===== Horizontal auto-scroll container ===== */
+.reviews-scroll {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  /* Allow horizontal movement while keeping your original flex layout */
+  overflow-x: auto; 
+  scrollbar-width: none; /* Hide scrollbar for a clean look */
+}
+
+.reviews-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== Individual review card ===== */
+.review-card {
+  min-width: 300px; /* Slightly wider */
+  max-width: 350px;
+  height: 280px;    /* FIXED HEIGHT: Makes cards look uniform */
+  flex-shrink: 0;   /* CRITICAL: Stops cards from squishing on mobile */
+
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+.review-stars {
+  color: #f97316;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ===== Scrollable text logic ===== */
+.review-text {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.6;
+
+  /* MODIFIED: Increased height to show more text before needing to scroll */
+  flex-grow: 1; 
+  max-height: 150px; 
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Your custom scrollbar logic preserved */
+.review-text::-webkit-scrollbar { width: 4px; }
+.review-text::-webkit-scrollbar-thumb {
+  background: rgba(10, 37, 64, 0.2);
+  border-radius: 10px;
+}
+.review-text {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(10, 37, 64, 0.2) transparent;
+}
+
+.review-name {
+  font-weight: 600;
+  color: #0a2540;
+  margin-top: auto; /* Pushes name to the bottom of the fixed-height card */
+}
+
+/* ===== Google button (untouched) ===== */
+.reviews-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  background: #f97316;
+  color: white;
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(249, 115, 22, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reviews-button:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(249, 116, 22, 0.562);
+}

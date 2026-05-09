@@ -1,0 +1,156 @@
+/* ===== Doctors Section ===== */
+#doctors {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.doctors-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.doctors-header h2 {
+  color: #0a2540;
+  font-size: 2rem;
+}
+
+/* Centered grid */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 320px)); 
+  justify-content: center;
+  gap: 4rem; /* Increased gap to accommodate the floating outline */
+  padding: 0 1.5rem;
+}
+
+.doctor-card {
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* The Frame - This holds the outline */
+.doctor-poster {
+  position: relative;
+  height: 340px;
+  background-color: #ffe5c6;
+  border-radius: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.35s ease,
+              outline 0.3s ease;
+  
+  /* Initial invisible outline with offset */
+  outline: 4px solid transparent;
+  outline-offset: 10px; 
+}
+
+/* Hover & Active: The Floating Orange Outline */
+.doctor-card:hover .doctor-poster,
+.active-selection {
+  transform: scale(1.03);
+  background-color: #f97316 !important;
+  outline: 4px solid #f97316 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Internal Clipping Container */
+.doctor-img-container {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  overflow: hidden; /* Clips the image and glass while outline stays outside */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Glassmorphism Overlay */
+.doctor-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(249, 116, 22, 0); /* Semi-transparent orange */
+  backdrop-filter: blur(12px); /* Glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  
+  color: #fff;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 5;
+}
+
+.doctor-overlay.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Image Scaling & Blurring */
+.doctor-img {
+  height: auto;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  z-index: 1;
+}
+
+.doctor-img.blurred {
+  filter: blur(4px) brightness(0.8);
+  transform: scale(1.1);
+}
+
+.doctor-img.female { height: 340px; }
+.doctor-img.male { height: 295px; }
+
+/* Text Styles */
+.doctor-qual {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.doctor-details {
+  list-style: none;
+  padding: 0;
+}
+
+.doctor-details li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.doctor-name {
+  margin-top: 1.8rem; /* Increased to avoid outline overlap */
+  font-size: 1.35rem;
+  color: #fd7474;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.doctor-card:hover .doctor-name {
+  color: #f97316;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .doctors-grid {
+    grid-template-columns: minmax(0, 320px);
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+    .doctor-poster {
+        outline-offset: 6px; /* Tighten the gap for small screens */
+    }
+}

@@ -1,0 +1,227 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body styling */
+body {
+  font-family: "Helvetica Nueue", Arial, sans-serif;
+  color: #0a2540;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Header */
+header {
+  background-color: #FFFFFF;
+  border-bottom: 2px solid #FF7A00;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #001F54;
+}
+
+header nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #001F54;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #FF7A00;
+}
+
+/* Hero Section */
+section h2 {
+  color: #001F54;
+  margin-bottom: 0.5rem;
+}
+
+section p {
+  color: #001F54;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 4rem 1rem;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+/* Services / Doctors Sections */
+#services, #doctors {
+  background-color: #87CEEB22; /* subtle sky blue tint */
+  padding: 4rem 1rem;
+}
+
+/* Appointment Form */
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #001F54;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.85rem;
+  background-color: #FF7A00;
+  color: #FFFFFF;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #FF9500;
+}
+
+/* Footer */
+footer {
+  background-color: #001F54;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ===== Scroll Reveal Animation ===== */
+
+/* Base state (hidden) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.45s ease-out,
+    transform 0.45s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Visible state */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+footer.reveal {
+  transform: none; /* no slide */
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header nav a {
+    margin: 0.5rem;
+    display: inline-block;
+  }
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Mobile-friendly button tap size */
+button {
+  min-height: 44px;
+}
+
+/* ===== Mobile layout fixes ===== */
+
+@media (max-width: 768px) {
+
+  /* Hero layout stacks */
+  .hero .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Hero image scales down */
+  .hero img {
+    height: auto;
+    max-height: 320px;
+  }
+
+  /* Prevent text overflow */
+  .hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero ul {
+    padding-left: 0;
+  }
+}
+
+/* ===== Hide scrollbar but allow scrolling ===== */
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* IE & old Edge */
+body {
+  -ms-overflow-style: none;
+}

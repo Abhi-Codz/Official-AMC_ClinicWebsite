@@ -1,0 +1,195 @@
+#services {
+  padding: 0.2rem 0.2rem;
+  background: #f8fafc;
+}
+
+.services-section {
+  padding: 3rem 0;
+  background: #ffffff;
+  
+  /* Initial State */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Activated State */
+.services-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Adding a staggered "pop" to the segments when the section shows */
+.services-section .segment {
+  opacity: 0;
+  transition: fill 0.3s ease, transform 0.3s ease, filter 0.3s ease, opacity 0.8s ease;
+}
+
+.services-section.show .segment {
+  opacity: 1;
+}
+
+/* Keeping your original segment styles exactly as they were */
+.segment.filled { fill: #ff6a00; }
+.segment.outline { fill: white; }
+.segment:hover { transform: scale(1.05); }
+
+/* ===== Header ===== */
+.services-header {
+  text-align: center;
+  margin-bottom: 0.0008rem;
+}
+
+.services-header h2 {
+  color: #0a2540;
+  font-size: 1.6rem;
+}
+
+.services-header p {
+  max-width: 600px;
+  margin: 0.75rem auto 0;
+  color: #4a5568;
+  line-height: 1.1;
+}
+
+/* ===== Circle Wrapper ===== */
+.circle-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* ADDED: Limits growth on desktop while staying responsive */
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Ensure SVG fills the wrapper and scales */
+.circle-wrapper svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ===== Segments ===== */
+.segment {
+  stroke: #ff6a00;
+  stroke-width: 2.5;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transform-origin: center;
+}
+
+.segment.filled {
+  fill: #ff6a00;
+}
+
+.segment.outline {
+  fill: white;
+}
+
+.segment.outline:hover {
+  fill: #ffe5c6;
+}
+
+.segment:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.2));
+}
+
+.segment.active {
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+}
+
+/* ===== Numbers & Labels ===== */
+.segment-number {
+  font-size: 20px;
+  font-weight: bold;
+  fill: #0a2540;
+  pointer-events: none;
+}
+
+.segment-label {
+  font-size: 14px;
+  font-weight: 600;
+  fill: #0a2540;
+  pointer-events: none;
+}
+
+/* ===== Center Content ===== */
+.center-content {
+  position: absolute;
+  /* MODIFIED: Use percentages/rem for responsive scaling */
+  width: 40%; 
+  text-align: center;
+  pointer-events: none; /* Prevents text from blocking segment clicks */
+}
+
+.center-content h3 {
+  color: #ff6a00;
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.9rem, 4vw, 1.3rem); /* Fluid typography */
+}
+
+.center-content p {
+  font-size: clamp(0.7rem, 2.5vw, 0.92rem); /* Fluid typography */
+  line-height: 1.4;
+  color: #333;
+}
+
+/* ===== Responsive Adaptations ===== */
+
+/* Desktop Grid/Contact handling (from your original) */
+@media (max-width: 900px) {
+  .services-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Mobile specific fixes for the Circle */
+@media (max-width: 600px) {
+/* This container now acts as the 'anchor' for everything */
+.circle-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 640px; /* Matches your 'size' variable */
+  aspect-ratio: 1 / 1; /* Forces a perfect square so center-content stays centered */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+.center-content {
+  position: absolute;
+  /* Centering logic that won't break on resize */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  
+  width: 40%; /* Keeps text inside the innerR (200) */
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Fluid typography so text doesn't look giant on small circles */
+.center-content h3 {
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  margin-bottom: 0.5rem;
+}
+
+.center-content p {
+  font-size: clamp(0.7rem, 2.8vw, 0.92rem);
+  line-height: 1.4;
+}
+  iframe {
+    height: 220px !important;
+  }
+}

@@ -1,0 +1,46 @@
+/* ===== Footer (Dark, Thin) ===== */
+
+.footer {
+  background-color: #001f54;
+  color: #cbd5e1;
+  padding: 1.6rem 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  /* Added: ensures the footer itself never causes horizontal scroll */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Credit (most subtle) */
+.footer-credit {
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  /* Added: ensures long name strings wrap on small screens */
+  line-height: 1.4;
+}
+
+/* Company name (muted but important) */
+.footer-main {
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* Contact info */
+.footer-sub {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  /* Added: improves readability when text wraps on mobile */
+  line-height: 1.5;
+  word-break: break-word; 
+}
+
+/* Optional: Small mobile tweak for text density */
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+}

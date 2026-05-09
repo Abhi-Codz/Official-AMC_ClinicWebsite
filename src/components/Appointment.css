@@ -1,0 +1,189 @@
+/* ===== Appointment Section Container ===== */
+.appointment-section {
+  background-color: #f4fbff;
+  background-image: radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.05) 0, transparent 50%),
+  radial-gradient(at 100% 100%, rgba(10, 37, 64, 0.05) 0, transparent 50%);
+}
+
+.appointment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== Liquid Text & Typewriter Animation ===== */
+@keyframes liquidGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.liquid-text {
+  background: linear-gradient(
+    120deg,
+    #f97316,
+    #fb923c,
+    #fd7474,
+    #f97316,
+    #ea580c
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: liquidGradient 6s ease infinite;
+  font-size: 2.8rem;
+  font-weight: 800;
+  min-height: 80px; /* Prevents layout jump while the text types */
+  margin-bottom: 1rem;
+}
+
+/* The Typewriter Cursor */
+.cursor {
+  color: #f97316;
+  font-weight: 300;
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===== Contact Info & Icons ===== */
+.appointment-info p {
+  color: #4a5568;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.contact-details {
+  margin-top: 2.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  color: #f97316;
+  flex-shrink: 0;
+}
+
+.contact-item p {
+  margin: 0;
+  font-weight: 500;
+  color: #0a2540;
+}
+
+/* ===== Form Card Styling ===== */
+.appointment-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(10, 37, 64, 0.05);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* ===== Submit Button ===== */
+.submit-btn {
+  width: 100%;
+  background: #f97316;
+  color: #ffffff;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(234, 88, 12, 0.3);
+}
+
+.submit-btn:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+}
+
+/* ===== Success/Error Messages ===== */
+.msg {
+  margin-top: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.msg.success { color: #10b981; }
+.msg.error { color: #ef4444; }
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 900px) {
+  .appointment-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .contact-details {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .liquid-text {
+    font-size: 2.2rem;
+    min-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appointment-card {
+    padding: 1.5rem;
+  }
+  
+  .liquid-text {
+    font-size: 1.8rem;
+  }
+}
